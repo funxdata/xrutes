@@ -52,16 +52,16 @@ impl RuteInner {
         if uris.starts_with(':'){
             temp_mt = Some(mt.clone());
         }
-        let mut node_id: usize = 0;
         // 匹配正常值
-        match self.search_node(path.clone(),temp_mt){
+       let node_id=  match self.search_node(path.clone(),temp_mt){
             Some(index)=>{
-                node_id = index;
+                index
             }
             None=>{
-                node_id = self.insert_node(path);
+                self.insert_node(path)
+                
             }
-        }
+        };
         self.nodes[node_id].insert(uris, mt, id)
     }
     

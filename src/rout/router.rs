@@ -2,7 +2,6 @@
 #![allow(dead_code)]
 use crate::rout::inner::RuteInner;
 use http::Method;
-// use xcores::application::app;
 use crate::application::app;
 pub struct Rute{
     len:Option<usize>,     //路由长度
@@ -35,19 +34,18 @@ impl Rute {
         self.bind(uri, Method::PATCH, F)
     }
     fn bind(&mut self,path:&str,mt:Method,F:fn(&mut app::Application)){
-        let mut hook_id = 0;
-        match self.len {
+        let hook_id = match self.len {
             Some(len)=>{
                 self.hooks.insert(len, F);
                 self.len = Some(len+1);
-                hook_id = len +1;
+                len + 1
             },
             None=>{
                 self.len = Some(1);
-                hook_id = 1;
                 self.hooks.insert(0, F);
+                1
             }
-        }
+        };
         self.nodes.insert(path.to_string(), mt, hook_id);
     }
 
@@ -59,7 +57,7 @@ impl Rute {
                 return Some(id);
             }
             Err(e)=>{
-                println!("{:?}",e);
+                println!("未匹配到路由:{:?}",e);
                 return None;
             }
         }

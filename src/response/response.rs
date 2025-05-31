@@ -2,14 +2,10 @@
 use serde_derive::{Deserialize, Serialize};
 use super::err::err_code_to_msg;
 
-
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Response{
-    // #[serde(rename(serialize = "code", deserialize = "code"))]
     code:i32,
-    // #[serde(rename(serialize = "data", deserialize = "data"))]
     data:String,
-    // #[serde(rename(serialize = "msg", deserialize = "msg"))]
     msg:String,
 }
 
