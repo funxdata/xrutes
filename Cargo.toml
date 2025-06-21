@@ -1,8 +1,14 @@
 [package]
 name = "xrutes"
 version = "0.1.0"
-edition = "2024"
-publish = ["crates-io"]
+edition = "2021"
+authors = ["dowell <dowell@funxdata.com>"]
+description = "Routing and event handling"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/funxdata/xrutes.git"
+keywords = ["rout", "funxdata"] # 推荐
+categories = ["web"] 
 
 [dependencies]
 http = "1.3.1"
