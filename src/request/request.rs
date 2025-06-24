@@ -24,7 +24,3 @@ impl <T>Request<T> {
         self.body
     }
 }
-
-// impl Request {
-    
-// }
