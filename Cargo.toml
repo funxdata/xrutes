@@ -1,6 +1,6 @@
 [package]
 name = "xrutes"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["dowell <dowell@funxdata.com>"]
 description = "Routing and event handling"
